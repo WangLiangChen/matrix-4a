@@ -2,9 +2,33 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>wang.liangchen.matrix</groupId>
-    <artifactId>matrix-4a</artifactId>
+    <artifactId>matrix-security</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>matrix.security.sdk</module>
+        <module>matrix.security.server</module>
+        <module>matrix.security.web</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>a security management platform which base on shiro</description>
+    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/WangLiangChen/matrix-security.git</connection>
+        <developerConnection>scm:git:ssh://github.com/WangLiangChen/matrix-security.git</developerConnection>
+        <url>https://github.com/WangLiangChen/matrix-security</url>
+    </scm>
 
     <developers>
         <developer>
