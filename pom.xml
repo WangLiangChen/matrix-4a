@@ -4,31 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>wang.liangchen.matrix</groupId>
-    <artifactId>matrix-security</artifactId>
+    <artifactId>matrix-iam</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <modules>
-        <module>matrix.security.sdk</module>
-        <module>matrix.security.server</module>
-        <module>matrix.security.web</module>
-    </modules>
     <packaging>pom</packaging>
-
-    <name>${project.artifactId}</name>
-    <description>a security management platform which base on shiro</description>
-    <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>scm:git:git://github.com/WangLiangChen/matrix-security.git</connection>
-        <developerConnection>scm:git:ssh://github.com/WangLiangChen/matrix-security.git</developerConnection>
-        <url>https://github.com/WangLiangChen/matrix-security</url>
-    </scm>
 
     <developers>
         <developer>
@@ -42,20 +20,55 @@
         </developer>
     </developers>
 
+    <modules>
+        <module>matrix-iam-account</module>
+        <module>matrix-iam-authentication</module>
+        <module>matrix-iam-authorization</module>
+    </modules>
+
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss(+8)</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <version.matrix>1.0.0-SNAPSHOT</version.matrix>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>wang.liangchen.matrix</groupId>
+                <artifactId>matrix-framework-data-spring-boot-starter</artifactId>
+                <version>${version.matrix}</version>
+            </dependency>
+            <dependency>
+                <groupId>wang.liangchen.matrix</groupId>
+                <artifactId>matrix-framework-web-spring-boot-starter</artifactId>
+                <version>${version.matrix}</version>
+            </dependency>
+            <dependency>
+                <groupId>wang.liangchen.matrix</groupId>
+                <artifactId>matrix-framework-ddd</artifactId>
+                <version>${version.matrix}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>wang.liangchen.matrix</groupId>
-            <artifactId>matrix-framework</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <artifactId>matrix-framework-data-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wang.liangchen.matrix</groupId>
+            <artifactId>matrix-framework-web-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>wang.liangchen.matrix</groupId>
+            <artifactId>matrix-framework-ddd</artifactId>
         </dependency>
     </dependencies>
+
 
     <build>
         <finalName>${project.artifactId}</finalName>
