@@ -26,7 +26,7 @@ public class AuthorizationRepositoryAdapter implements AuthorizationRepository {
 
     @Override
     public int addAuthorizationSubjects(AuthorizationSubject... authorizationSubjects) {
-        return standaloneDao.insert(Arrays.asList(authorizationSubjects));
+        return addAuthorizationSubjects(Arrays.asList(authorizationSubjects));
     }
 
     @Override

@@ -2,8 +2,6 @@ package wang.liangchen.matrix.iam.authorization.domain;
 
 import org.springframework.stereotype.Service;
 import wang.liangchen.matrix.framework.ddd.domain.DomainService;
-import wang.liangchen.matrix.framework.ddd.domain.RootDomainService;
-import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectRequest;
 import wang.liangchen.matrix.iam.authorization.southbound_acl.port.repository.AuthorizationRepository;
 
 import javax.inject.Inject;
@@ -14,7 +12,7 @@ import java.util.List;
  */
 @Service
 @DomainService
-public class AuthorizationDomainService extends RootDomainService<AuthorizationSubject> {
+public class AuthorizationDomainService {
     private final AuthorizationRepository repository;
 
     @Inject

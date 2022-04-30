@@ -1,1 +1,1 @@
-matrix-security is a security management platform which base on shiro,primary feature is 5A(Account、Authentication、Authorization、Audit and Access Control)
+matrix-iam is a security management platform which base on shiro,primary feature is 5A(Account、Authentication、Authorization、Audit and Access Control)
