@@ -1,8 +1,8 @@
-package com.sintrue.matrix.example.account.northbound_ohs.local;
+package wang.liangchen.matrix.iam.account.northbound_ohs.local;
 
-import com.sintrue.matrix.example.account.domain.AccountDomainService;
 import org.springframework.stereotype.Service;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.Local;
+import wang.liangchen.matrix.iam.account.domain.AccountDomainService;
 
 import javax.inject.Inject;
 

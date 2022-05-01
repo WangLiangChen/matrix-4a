@@ -1,4 +1,4 @@
-package com.sintrue.matrix.example.account.domain;
+package wang.liangchen.matrix.iam.account.domain;
 
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.RootEntity;

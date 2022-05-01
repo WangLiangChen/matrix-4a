@@ -1,4 +1,4 @@
-package com.sintrue.matrix.example.account.domain;
+package wang.liangchen.matrix.iam.account.domain;
 
 import org.springframework.stereotype.Service;
 import wang.liangchen.matrix.framework.ddd.domain.DomainService;

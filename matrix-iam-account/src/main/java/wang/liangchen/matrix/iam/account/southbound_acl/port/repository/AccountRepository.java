@@ -1,4 +1,4 @@
-package com.sintrue.matrix.example.account.southbound_acl.port.repository;
+package wang.liangchen.matrix.iam.account.southbound_acl.port.repository;
 
 import wang.liangchen.matrix.framework.ddd.southbound_acl.Port;
 import wang.liangchen.matrix.framework.ddd.southbound_acl.PortType;

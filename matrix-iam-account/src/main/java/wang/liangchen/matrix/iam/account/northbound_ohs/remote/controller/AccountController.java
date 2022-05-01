@@ -1,8 +1,8 @@
-package com.sintrue.matrix.example.account.northbound_ohs.remote.controller;
+package wang.liangchen.matrix.iam.account.northbound_ohs.remote.controller;
 
-import com.sintrue.matrix.example.account.northbound_ohs.local.AccountApplicationService;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.Remote;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.RemoteType;
+import wang.liangchen.matrix.iam.account.northbound_ohs.local.AccountApplicationService;
 
 import javax.inject.Inject;
 

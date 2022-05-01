@@ -1,4 +1,4 @@
-package com.sintrue.matrix.example.account.domain;
+package wang.liangchen.matrix.iam.account.domain;
 
 /**
  * @author Liangchen.Wang 2022-04-24 14:09

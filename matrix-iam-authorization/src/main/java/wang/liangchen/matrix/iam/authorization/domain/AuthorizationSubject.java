@@ -64,119 +64,134 @@ public class AuthorizationSubject extends RootEntity {
         return this.subjectId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public AuthorizationSubject setSubjectId(Long subjectId) {
         this.subjectId = subjectId;
+        return this;
     }
 
     public String getTenantCode() {
         return this.tenantCode;
     }
 
-    public void setTenantCode(String tenantCode) {
+    public AuthorizationSubject setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
+        return this;
     }
 
     public String getAppCode() {
         return this.appCode;
     }
 
-    public void setAppCode(String appCode) {
+    public AuthorizationSubject setAppCode(String appCode) {
         this.appCode = appCode;
+        return this;
     }
 
     public String getSubjectOrigin() {
         return this.subjectOrigin;
     }
 
-    public void setSubjectOrigin(String subjectOrigin) {
+    public AuthorizationSubject setSubjectOrigin(String subjectOrigin) {
         this.subjectOrigin = subjectOrigin;
+        return this;
     }
 
     public String getSubjectCode() {
         return this.subjectCode;
     }
 
-    public void setSubjectCode(String subjectCode) {
+    public AuthorizationSubject setSubjectCode(String subjectCode) {
         this.subjectCode = subjectCode;
+        return this;
     }
 
     public Byte getDataMode() {
         return this.dataMode;
     }
 
-    public void setDataMode(Byte dataMode) {
+    public AuthorizationSubject setDataMode(Byte dataMode) {
         this.dataMode = dataMode;
+        return this;
     }
 
     public Integer getVersion() {
         return this.version;
     }
 
-    public void setVersion(Integer version) {
+    public AuthorizationSubject setVersion(Integer version) {
         this.version = version;
+        return this;
     }
 
     public Integer getSort() {
         return this.sort;
     }
 
-    public void setSort(Integer sort) {
+    public AuthorizationSubject setSort(Integer sort) {
         this.sort = sort;
+        return this;
     }
 
     public String getOwner() {
         return this.owner;
     }
 
-    public void setOwner(String owner) {
+    public AuthorizationSubject setOwner(String owner) {
         this.owner = owner;
+        return this;
     }
 
     public String getCreator() {
         return this.creator;
     }
 
-    public void setCreator(String creator) {
+    public AuthorizationSubject setCreator(String creator) {
         this.creator = creator;
+        return this;
     }
 
     public java.time.LocalDateTime getCreateDatetime() {
         return this.createDatetime;
     }
 
-    public void setCreateDatetime(java.time.LocalDateTime createDatetime) {
+    public AuthorizationSubject setCreateDatetime(java.time.LocalDateTime createDatetime) {
         this.createDatetime = createDatetime;
+        return this;
     }
 
     public String getModifier() {
         return this.modifier;
     }
 
-    public void setModifier(String modifier) {
+    public AuthorizationSubject setModifier(String modifier) {
         this.modifier = modifier;
+        return this;
     }
 
     public java.time.LocalDateTime getModifyDatetime() {
         return this.modifyDatetime;
     }
 
-    public void setModifyDatetime(java.time.LocalDateTime modifyDatetime) {
+    public AuthorizationSubject setModifyDatetime(java.time.LocalDateTime modifyDatetime) {
         this.modifyDatetime = modifyDatetime;
+        return this;
     }
 
     public String getSummary() {
         return this.summary;
     }
 
-    public void setSummary(String summary) {
+    public AuthorizationSubject setSummary(String summary) {
         this.summary = summary;
+        return this;
     }
 
     public String getState() {
         return this.state;
     }
 
-    public void setState(String state) {
+    public AuthorizationSubject setState(String state) {
         this.state = state;
+        return this;
     }
 }

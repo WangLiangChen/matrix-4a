@@ -1,4 +1,4 @@
-package com.sintrue.matrix.example.account.message_pl;
+package wang.liangchen.matrix.iam.account.message_pl;
 
 import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
 import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
