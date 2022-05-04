@@ -30,18 +30,7 @@ public class AuthorizationApplicationService {
 
     public int addAuthorizationSubject(AuthorizationSubjectRequest authorizationSubjectRequest) {
         ValidationUtil.INSTANCE.validate(authorizationSubjectRequest);
-        AuthorizationSubject authorizationSubject = authorizationSubjectRequest.to()
-                .setSubjectId(0L)
-                .setDataMode(DataMode.A.getValue())
-                .setVersion(0)
-                .setSort(0)
-                .setOwner("")
-                .setCreator("")
-                .setCreateDatetime(LocalDateTime.now())
-                .setModifier("")
-                .setModifyDatetime(LocalDateTime.now())
-                .setSummary("")
-                .setState("NORMAL");
+        AuthorizationSubject authorizationSubject = authorizationSubjectRequest.to();
         return repository.addAuthorizationSubjects(authorizationSubject);
     }
 }

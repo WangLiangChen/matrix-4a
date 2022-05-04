@@ -1,12 +1,12 @@
 package wang.liangchen.matrix.iam.authorization.message_pl;
 
-import jakarta.validation.constraints.NotBlank;
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
 import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 import wang.liangchen.matrix.iam.authorization.domain.AuthorizationSubject;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 
 
 /**
