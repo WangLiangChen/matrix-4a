@@ -313,6 +313,7 @@ resource_id
 /*==============================================================*/
 create table matrix_authorization_permission (
    permission_id        int8                 not null,
+   resource_id          int8                 null,
    operation_id         int8                 null,
    role_id              int8                 null,
    tenant_code          varchar(36)          not null,
@@ -328,12 +329,12 @@ create table matrix_authorization_permission (
    sort                 int4                 not null default 0,
    owner                varchar(36)          not null default '',
    creator              varchar(36)          not null default '',
-   create_datetime      timestamp                 not null,
+   create_datetime      timestamp            not null,
    modifier             varchar(36)          not null default '',
-   modify_datetime      timestamp                 not null,
+   modify_datetime      timestamp            not null,
    summary              varchar(200)         not null default '',
    state                varchar(36)          not null,
-   constraint pk_matrix_authorization_permission primary key (permission_id)
+   constraint pk_authorization_permission primary key (permission_id)
 );
 
 comment on table matrix_authorization_permission is
@@ -343,6 +344,9 @@ label
 rule';
 
 comment on column matrix_authorization_permission.permission_id is
+'PrimaryKey';
+
+comment on column matrix_authorization_permission.resource_id is
 'PrimaryKey';
 
 comment on column matrix_authorization_permission.operation_id is
@@ -400,10 +404,17 @@ comment on column matrix_authorization_permission.state is
 '状态';
 
 /*==============================================================*/
-/* Index: matrix_authorization_permission_pk                           */
+/* Index: authorization_permission_pk                           */
 /*==============================================================*/
-create unique index matrix_authorization_permission_pk on matrix_authorization_permission (
+create unique index authorization_permission_pk on matrix_authorization_permission (
 permission_id
+);
+
+/*==============================================================*/
+/* Index: resource_permission_fk                                */
+/*==============================================================*/
+create  index resource_permission_fk on matrix_authorization_permission (
+resource_id
 );
 
 /*==============================================================*/
