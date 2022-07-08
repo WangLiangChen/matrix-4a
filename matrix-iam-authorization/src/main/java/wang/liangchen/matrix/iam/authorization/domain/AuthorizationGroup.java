@@ -1,4 +1,4 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate.role;
+package wang.liangchen.matrix.iam.authorization.domain;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
@@ -11,15 +11,22 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_roleset_role")
-@Table(name = "matrix_authorization_roleset_role")
-public class AuthorizationRolesetRole extends RootEntity {
+@Entity(name = "matrix_authorization_group")
+@Table(name = "matrix_authorization_group")
+public class AuthorizationGroup extends RootEntity {
     @Id
-    @Column(name = "roleset_id")
-    private Long rolesetId;
-    @Id
-    @Column(name = "role_id")
-    private Long roleId;
+    @Column(name = "group_id")
+    private Long groupId;
+    @Column(name = "parent_id")
+    private Long parentId;
+    @Column(name = "tenant_code")
+    private String tenantCode;
+    @Column(name = "app_code")
+    private String appCode;
+    @Column(name = "group_code")
+    private String groupCode;
+    @Column(name = "group_name")
+    private String groupName;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -43,25 +50,49 @@ public class AuthorizationRolesetRole extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationRolesetRole valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRolesetRole.class);
+    public static AuthorizationGroup valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationGroup.class);
     }
 
-    public static AuthorizationRolesetRole newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationRolesetRole.class);
+    public static AuthorizationGroup newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationGroup.class);
     }
 
-    public Long getRolesetId() {
-        return this.rolesetId;
+    public Long getGroupId() {
+        return this.groupId;
     }
-    public void setRolesetId(Long rolesetId) {
-        this.rolesetId = rolesetId;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
-    public Long getRoleId() {
-        return this.roleId;
+    public Long getParentId() {
+        return this.parentId;
     }
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+    public String getTenantCode() {
+        return this.tenantCode;
+    }
+    public void setTenantCode(String tenantCode) {
+        this.tenantCode = tenantCode;
+    }
+    public String getAppCode() {
+        return this.appCode;
+    }
+    public void setAppCode(String appCode) {
+        this.appCode = appCode;
+    }
+    public String getGroupCode() {
+        return this.groupCode;
+    }
+    public void setGroupCode(String groupCode) {
+        this.groupCode = groupCode;
+    }
+    public String getGroupName() {
+        return this.groupName;
+    }
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -127,9 +158,13 @@ public class AuthorizationRolesetRole extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationRolesetRole{");
-        builder.append("rolesetId = ").append(rolesetId).append(", ");
-        builder.append("roleId = ").append(roleId).append(", ");
+        builder.append("AuthorizationGroup{");
+        builder.append("groupId = ").append(groupId).append(", ");
+        builder.append("parentId = ").append(parentId).append(", ");
+        builder.append("tenantCode = ").append(tenantCode).append(", ");
+        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("groupCode = ").append(groupCode).append(", ");
+        builder.append("groupName = ").append(groupName).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

@@ -1,10 +1,9 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate.subject;
+package wang.liangchen.matrix.iam.authorization.domain;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.RootEntity;
-import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,21 +11,15 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_subject")
-@Table(name = "matrix_authorization_subject")
-@AggregateRoot
-public class AuthorizationSubject extends RootEntity {
+@Entity(name = "matrix_authorization_roleset_subject")
+@Table(name = "matrix_authorization_roleset_subject")
+public class AuthorizationRolesetSubject extends RootEntity {
+    @Id
+    @Column(name = "roleset_id")
+    private Long rolesetId;
     @Id
     @Column(name = "subject_id")
     private Long subjectId;
-    @Column(name = "tenant_code")
-    private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
-    @Column(name = "subject_code")
-    private String subjectCode;
-    @Column(name = "subject_name")
-    private String subjectName;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -50,43 +43,25 @@ public class AuthorizationSubject extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationSubject valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationSubject.class);
+    public static AuthorizationRolesetSubject valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRolesetSubject.class);
     }
 
-    public static AuthorizationSubject newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationSubject.class);
+    public static AuthorizationRolesetSubject newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationRolesetSubject.class);
     }
 
+    public Long getRolesetId() {
+        return this.rolesetId;
+    }
+    public void setRolesetId(Long rolesetId) {
+        this.rolesetId = rolesetId;
+    }
     public Long getSubjectId() {
         return this.subjectId;
     }
     public void setSubjectId(Long subjectId) {
         this.subjectId = subjectId;
-    }
-    public String getTenantCode() {
-        return this.tenantCode;
-    }
-    public void setTenantCode(String tenantCode) {
-        this.tenantCode = tenantCode;
-    }
-    public String getAppCode() {
-        return this.appCode;
-    }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
-    }
-    public String getSubjectCode() {
-        return this.subjectCode;
-    }
-    public void setSubjectCode(String subjectCode) {
-        this.subjectCode = subjectCode;
-    }
-    public String getSubjectName() {
-        return this.subjectName;
-    }
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -152,12 +127,9 @@ public class AuthorizationSubject extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationSubject{");
+        builder.append("AuthorizationRolesetSubject{");
+        builder.append("rolesetId = ").append(rolesetId).append(", ");
         builder.append("subjectId = ").append(subjectId).append(", ");
-        builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
-        builder.append("subjectCode = ").append(subjectCode).append(", ");
-        builder.append("subjectName = ").append(subjectName).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

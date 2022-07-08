@@ -1,10 +1,9 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate.role;
+package wang.liangchen.matrix.iam.authorization.domain.resource;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.RootEntity;
-import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,21 +11,34 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_role")
-@Table(name = "matrix_authorization_role")
-@AggregateRoot
-public class AuthorizationRole extends RootEntity {
+@Entity(name = "matrix_authorization_permission")
+@Table(name = "matrix_authorization_permission")
+public class AuthorizationPermission extends RootEntity {
     @Id
+    @Column(name = "permission_id")
+    private Long permissionId;
+    @Column(name = "resource_id")
+    private Long resourceId;
+    @Column(name = "operation_id")
+    private Long operationId;
     @Column(name = "role_id")
     private Long roleId;
     @Column(name = "tenant_code")
     private String tenantCode;
     @Column(name = "app_code")
     private String appCode;
-    @Column(name = "role_code")
-    private String roleCode;
-    @Column(name = "role_name")
-    private String roleName;
+    @Column(name = "permission_code")
+    private String permissionCode;
+    @Column(name = "permission_name")
+    private String permissionName;
+    @Column(name = "perimission_dependency")
+    private String perimissionDependency;
+    @Column(name = "permission_uri")
+    private String permissionUri;
+    @Column(name = "permission_label")
+    private String permissionLabel;
+    @Column(name = "permission_rule")
+    private String permissionRule;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -50,14 +62,32 @@ public class AuthorizationRole extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationRole valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRole.class);
+    public static AuthorizationPermission valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationPermission.class);
     }
 
-    public static AuthorizationRole newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationRole.class);
+    public static AuthorizationPermission newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationPermission.class);
     }
 
+    public Long getPermissionId() {
+        return this.permissionId;
+    }
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
+    }
+    public Long getResourceId() {
+        return this.resourceId;
+    }
+    public void setResourceId(Long resourceId) {
+        this.resourceId = resourceId;
+    }
+    public Long getOperationId() {
+        return this.operationId;
+    }
+    public void setOperationId(Long operationId) {
+        this.operationId = operationId;
+    }
     public Long getRoleId() {
         return this.roleId;
     }
@@ -76,17 +106,41 @@ public class AuthorizationRole extends RootEntity {
     public void setAppCode(String appCode) {
         this.appCode = appCode;
     }
-    public String getRoleCode() {
-        return this.roleCode;
+    public String getPermissionCode() {
+        return this.permissionCode;
     }
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode;
     }
-    public String getRoleName() {
-        return this.roleName;
+    public String getPermissionName() {
+        return this.permissionName;
     }
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
+    }
+    public String getPerimissionDependency() {
+        return this.perimissionDependency;
+    }
+    public void setPerimissionDependency(String perimissionDependency) {
+        this.perimissionDependency = perimissionDependency;
+    }
+    public String getPermissionUri() {
+        return this.permissionUri;
+    }
+    public void setPermissionUri(String permissionUri) {
+        this.permissionUri = permissionUri;
+    }
+    public String getPermissionLabel() {
+        return this.permissionLabel;
+    }
+    public void setPermissionLabel(String permissionLabel) {
+        this.permissionLabel = permissionLabel;
+    }
+    public String getPermissionRule() {
+        return this.permissionRule;
+    }
+    public void setPermissionRule(String permissionRule) {
+        this.permissionRule = permissionRule;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -152,12 +206,19 @@ public class AuthorizationRole extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationRole{");
+        builder.append("AuthorizationPermission{");
+        builder.append("permissionId = ").append(permissionId).append(", ");
+        builder.append("resourceId = ").append(resourceId).append(", ");
+        builder.append("operationId = ").append(operationId).append(", ");
         builder.append("roleId = ").append(roleId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
         builder.append("appCode = ").append(appCode).append(", ");
-        builder.append("roleCode = ").append(roleCode).append(", ");
-        builder.append("roleName = ").append(roleName).append(", ");
+        builder.append("permissionCode = ").append(permissionCode).append(", ");
+        builder.append("permissionName = ").append(permissionName).append(", ");
+        builder.append("perimissionDependency = ").append(perimissionDependency).append(", ");
+        builder.append("permissionUri = ").append(permissionUri).append(", ");
+        builder.append("permissionLabel = ").append(permissionLabel).append(", ");
+        builder.append("permissionRule = ").append(permissionRule).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

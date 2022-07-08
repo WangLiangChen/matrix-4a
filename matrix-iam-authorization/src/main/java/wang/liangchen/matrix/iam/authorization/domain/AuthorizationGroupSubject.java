@@ -1,10 +1,9 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate.resource;
+package wang.liangchen.matrix.iam.authorization.domain;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.RootEntity;
-import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,23 +11,15 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_resource")
-@Table(name = "matrix_authorization_resource")
-@AggregateRoot
-public class AuthorizationResource extends RootEntity {
+@Entity(name = "matrix_authorization_group_subject")
+@Table(name = "matrix_authorization_group_subject")
+public class AuthorizationGroupSubject extends RootEntity {
     @Id
-    @Column(name = "resource_id")
-    private Long resourceId;
-    @Column(name = "parent_id")
-    private Long parentId;
-    @Column(name = "tenant_code")
-    private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
-    @Column(name = "resource_code")
-    private String resourceCode;
-    @Column(name = "resource_name")
-    private String resourceName;
+    @Column(name = "group_id")
+    private Long groupId;
+    @Id
+    @Column(name = "subject_id")
+    private Long subjectId;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -52,49 +43,25 @@ public class AuthorizationResource extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationResource valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationResource.class);
+    public static AuthorizationGroupSubject valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationGroupSubject.class);
     }
 
-    public static AuthorizationResource newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationResource.class);
+    public static AuthorizationGroupSubject newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationGroupSubject.class);
     }
 
-    public Long getResourceId() {
-        return this.resourceId;
+    public Long getGroupId() {
+        return this.groupId;
     }
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
-    public Long getParentId() {
-        return this.parentId;
+    public Long getSubjectId() {
+        return this.subjectId;
     }
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-    public String getTenantCode() {
-        return this.tenantCode;
-    }
-    public void setTenantCode(String tenantCode) {
-        this.tenantCode = tenantCode;
-    }
-    public String getAppCode() {
-        return this.appCode;
-    }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
-    }
-    public String getResourceCode() {
-        return this.resourceCode;
-    }
-    public void setResourceCode(String resourceCode) {
-        this.resourceCode = resourceCode;
-    }
-    public String getResourceName() {
-        return this.resourceName;
-    }
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -160,13 +127,9 @@ public class AuthorizationResource extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationResource{");
-        builder.append("resourceId = ").append(resourceId).append(", ");
-        builder.append("parentId = ").append(parentId).append(", ");
-        builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
-        builder.append("resourceCode = ").append(resourceCode).append(", ");
-        builder.append("resourceName = ").append(resourceName).append(", ");
+        builder.append("AuthorizationGroupSubject{");
+        builder.append("groupId = ").append(groupId).append(", ");
+        builder.append("subjectId = ").append(subjectId).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

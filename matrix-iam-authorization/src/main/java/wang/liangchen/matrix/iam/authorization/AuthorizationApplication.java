@@ -14,7 +14,7 @@ import wang.liangchen.matrix.framework.web.annotation.EnableWeb;
 @EnableWeb
 public class AuthorizationApplication {
     public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication();
+        SpringApplication springApplication = new SpringApplication(AuthorizationApplication.class);
         springApplication.run(args);
     }
 }

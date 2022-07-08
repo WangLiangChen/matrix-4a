@@ -1,4 +1,4 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate;
+package wang.liangchen.matrix.iam.authorization.domain.role;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
@@ -11,18 +11,18 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_role_resource_operation")
-@Table(name = "matrix_authorization_role_resource_operation")
-public class AuthorizationRoleResourceOperation extends RootEntity {
+@Entity(name = "matrix_authorization_roleset")
+@Table(name = "matrix_authorization_roleset")
+public class AuthorizationRoleset extends RootEntity {
     @Id
-    @Column(name = "role_id")
-    private Long roleId;
-    @Id
-    @Column(name = "resource_id")
-    private Long resourceId;
-    @Id
-    @Column(name = "operation_id")
-    private Long operationId;
+    @Column(name = "roleset_id")
+    private Long rolesetId;
+    @Column(name = "tenant_code")
+    private String tenantCode;
+    @Column(name = "app_code")
+    private String appCode;
+    @Column(name = "roleset_name")
+    private String rolesetName;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -46,31 +46,37 @@ public class AuthorizationRoleResourceOperation extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationRoleResourceOperation valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRoleResourceOperation.class);
+    public static AuthorizationRoleset valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRoleset.class);
     }
 
-    public static AuthorizationRoleResourceOperation newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationRoleResourceOperation.class);
+    public static AuthorizationRoleset newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationRoleset.class);
     }
 
-    public Long getRoleId() {
-        return this.roleId;
+    public Long getRolesetId() {
+        return this.rolesetId;
     }
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setRolesetId(Long rolesetId) {
+        this.rolesetId = rolesetId;
     }
-    public Long getResourceId() {
-        return this.resourceId;
+    public String getTenantCode() {
+        return this.tenantCode;
     }
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
+    public void setTenantCode(String tenantCode) {
+        this.tenantCode = tenantCode;
     }
-    public Long getOperationId() {
-        return this.operationId;
+    public String getAppCode() {
+        return this.appCode;
     }
-    public void setOperationId(Long operationId) {
-        this.operationId = operationId;
+    public void setAppCode(String appCode) {
+        this.appCode = appCode;
+    }
+    public String getRolesetName() {
+        return this.rolesetName;
+    }
+    public void setRolesetName(String rolesetName) {
+        this.rolesetName = rolesetName;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -136,10 +142,11 @@ public class AuthorizationRoleResourceOperation extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationRoleResourceOperation{");
-        builder.append("roleId = ").append(roleId).append(", ");
-        builder.append("resourceId = ").append(resourceId).append(", ");
-        builder.append("operationId = ").append(operationId).append(", ");
+        builder.append("AuthorizationRoleset{");
+        builder.append("rolesetId = ").append(rolesetId).append(", ");
+        builder.append("tenantCode = ").append(tenantCode).append(", ");
+        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("rolesetName = ").append(rolesetName).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

@@ -1,4 +1,4 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate;
+package wang.liangchen.matrix.iam.authorization.domain;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
@@ -11,22 +11,18 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_group")
-@Table(name = "matrix_authorization_group")
-public class AuthorizationGroup extends RootEntity {
+@Entity(name = "matrix_authorization_allowlist")
+@Table(name = "matrix_authorization_allowlist")
+public class AuthorizationAllowlist extends RootEntity {
     @Id
-    @Column(name = "group_id")
-    private Long groupId;
-    @Column(name = "parent_id")
-    private Long parentId;
+    @Column(name = "allowlist_id")
+    private Long allowlistId;
     @Column(name = "tenant_code")
     private String tenantCode;
     @Column(name = "app_code")
     private String appCode;
-    @Column(name = "group_code")
-    private String groupCode;
-    @Column(name = "group_name")
-    private String groupName;
+    @Column(name = "permission_uri")
+    private String permissionUri;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -50,25 +46,19 @@ public class AuthorizationGroup extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationGroup valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationGroup.class);
+    public static AuthorizationAllowlist valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationAllowlist.class);
     }
 
-    public static AuthorizationGroup newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationGroup.class);
+    public static AuthorizationAllowlist newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationAllowlist.class);
     }
 
-    public Long getGroupId() {
-        return this.groupId;
+    public Long getAllowlistId() {
+        return this.allowlistId;
     }
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-    public Long getParentId() {
-        return this.parentId;
-    }
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setAllowlistId(Long allowlistId) {
+        this.allowlistId = allowlistId;
     }
     public String getTenantCode() {
         return this.tenantCode;
@@ -82,17 +72,11 @@ public class AuthorizationGroup extends RootEntity {
     public void setAppCode(String appCode) {
         this.appCode = appCode;
     }
-    public String getGroupCode() {
-        return this.groupCode;
+    public String getPermissionUri() {
+        return this.permissionUri;
     }
-    public void setGroupCode(String groupCode) {
-        this.groupCode = groupCode;
-    }
-    public String getGroupName() {
-        return this.groupName;
-    }
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setPermissionUri(String permissionUri) {
+        this.permissionUri = permissionUri;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -158,13 +142,11 @@ public class AuthorizationGroup extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationGroup{");
-        builder.append("groupId = ").append(groupId).append(", ");
-        builder.append("parentId = ").append(parentId).append(", ");
+        builder.append("AuthorizationAllowlist{");
+        builder.append("allowlistId = ").append(allowlistId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
         builder.append("appCode = ").append(appCode).append(", ");
-        builder.append("groupCode = ").append(groupCode).append(", ");
-        builder.append("groupName = ").append(groupName).append(", ");
+        builder.append("permissionUri = ").append(permissionUri).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");

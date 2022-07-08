@@ -1,4 +1,4 @@
-package wang.liangchen.matrix.iam.authorization.domain.aggregate;
+package wang.liangchen.matrix.iam.authorization.domain.role;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
@@ -11,15 +11,15 @@ import java.time.LocalDateTime;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_group_subject")
-@Table(name = "matrix_authorization_group_subject")
-public class AuthorizationGroupSubject extends RootEntity {
+@Entity(name = "matrix_authorization_roleset_role")
+@Table(name = "matrix_authorization_roleset_role")
+public class AuthorizationRolesetRole extends RootEntity {
     @Id
-    @Column(name = "group_id")
-    private Long groupId;
+    @Column(name = "roleset_id")
+    private Long rolesetId;
     @Id
-    @Column(name = "subject_id")
-    private Long subjectId;
+    @Column(name = "role_id")
+    private Long roleId;
     @Column(name = "data_mode")
     private Short dataMode;
     @Version
@@ -43,25 +43,25 @@ public class AuthorizationGroupSubject extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationGroupSubject valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationGroupSubject.class);
+    public static AuthorizationRolesetRole valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRolesetRole.class);
     }
 
-    public static AuthorizationGroupSubject newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationGroupSubject.class);
+    public static AuthorizationRolesetRole newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationRolesetRole.class);
     }
 
-    public Long getGroupId() {
-        return this.groupId;
+    public Long getRolesetId() {
+        return this.rolesetId;
     }
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public void setRolesetId(Long rolesetId) {
+        this.rolesetId = rolesetId;
     }
-    public Long getSubjectId() {
-        return this.subjectId;
+    public Long getRoleId() {
+        return this.roleId;
     }
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
     public Short getDataMode() {
         return this.dataMode;
@@ -127,9 +127,9 @@ public class AuthorizationGroupSubject extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationGroupSubject{");
-        builder.append("groupId = ").append(groupId).append(", ");
-        builder.append("subjectId = ").append(subjectId).append(", ");
+        builder.append("AuthorizationRolesetRole{");
+        builder.append("rolesetId = ").append(rolesetId).append(", ");
+        builder.append("roleId = ").append(roleId).append(", ");
         builder.append("dataMode = ").append(dataMode).append(", ");
         builder.append("version = ").append(version).append(", ");
         builder.append("sort = ").append(sort).append(", ");
