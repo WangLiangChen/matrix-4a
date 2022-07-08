@@ -5,14 +5,14 @@ import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 /**
  * @author Liangchen.Wang 2022-07-07 12:13
  */
-public class AuthorizationSubjectResponse {
+public class AuthorizationSubjectQueryResponse {
     private String tenantCode;
     private String appCode;
     private String subjectCode;
     private String subjectName;
 
-    public static AuthorizationSubjectResponse newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationSubjectResponse.class);
+    public static AuthorizationSubjectQueryResponse newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationSubjectQueryResponse.class);
     }
 
     public String getTenantCode() {
