@@ -1,11 +1,15 @@
 package wang.liangchen.matrix.iam.authorization.message_pl;
 
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
+import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
+import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 
 /**
  * @author Liangchen.Wang 2022-07-07 12:13
  */
+@MessageContract(Direction.North)
 public class AuthorizationSubjectCommandRequest {
+    private Long subjectId;
     private String tenantCode;
     private String appCode;
     private String subjectCode;
@@ -13,6 +17,14 @@ public class AuthorizationSubjectCommandRequest {
 
     public static AuthorizationSubjectCommandRequest newInstance() {
         return ClassUtil.INSTANCE.instantiate(AuthorizationSubjectCommandRequest.class);
+    }
+
+    public Long getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
     }
 
     public String getTenantCode() {

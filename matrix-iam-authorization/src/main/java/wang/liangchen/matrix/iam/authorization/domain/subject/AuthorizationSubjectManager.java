@@ -3,7 +3,10 @@ package wang.liangchen.matrix.iam.authorization.domain.subject;
 import org.springframework.stereotype.Service;
 import wang.liangchen.matrix.framework.commons.uid.NumbericUid;
 import wang.liangchen.matrix.framework.data.dao.StandaloneDao;
-import wang.liangchen.matrix.framework.data.dao.criteria.*;
+import wang.liangchen.matrix.framework.data.dao.criteria.Criteria;
+import wang.liangchen.matrix.framework.data.dao.criteria.EntityGetter;
+import wang.liangchen.matrix.framework.data.dao.criteria.SqlValue;
+import wang.liangchen.matrix.framework.data.dao.criteria.UpdateCriteria;
 import wang.liangchen.matrix.framework.data.enumeration.StateEnum;
 import wang.liangchen.matrix.framework.data.pagination.PaginationResult;
 import wang.liangchen.matrix.framework.ddd.domain.DomainService;
@@ -32,8 +35,9 @@ public class AuthorizationSubjectManager {
     }
 
     public void delete(Long subjectId) {
-        standaloneDao.delete(SubCriteria.of(AuthorizationSubject.class)
-                ._equals(AuthorizationSubject::getSubjectId, SqlValue.of(subjectId)));
+        AuthorizationSubject entity = AuthorizationSubject.newInstance();
+        entity.setSubjectId(subjectId);
+        standaloneDao.delete(entity);
     }
 
     public void update(AuthorizationSubject entity) {
@@ -50,14 +54,6 @@ public class AuthorizationSubjectManager {
         return standaloneDao.pagination(criteria);
     }
 
-    /**
-     * 改变状态
-     * 从若干个状态迁移到一个状态
-     *
-     * @param subjectId
-     * @param stateTo
-     * @param stateFrom
-     */
     public void changeState(Long subjectId, String stateTo, String... stateFrom) {
         SqlValue[] sqlValues = new SqlValue[stateFrom.length];
         for (int i = 0; i < stateFrom.length; i++) {

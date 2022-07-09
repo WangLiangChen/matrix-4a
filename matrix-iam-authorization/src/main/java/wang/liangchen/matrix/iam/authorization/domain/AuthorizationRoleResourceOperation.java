@@ -4,6 +4,7 @@ import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.CommonEntity;
+import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
  */
 @Entity(name = "matrix_authorization_role_resource_operation")
 @Table(name = "matrix_authorization_role_resource_operation")
+@AggregateRoot
 public class AuthorizationRoleResourceOperation extends CommonEntity {
     @Id
     @Column(name = "role_id")

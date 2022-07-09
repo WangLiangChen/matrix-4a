@@ -26,6 +26,13 @@ public class AuthorizationSubjectCommandService {
         AuthorizationSubject entity = AuthorizationSubject.valueOf(commandRequest);
         manager.add(entity);
     }
+    public void delete(Long subjectId){
+        manager.delete(subjectId);
+    }
+    public void update(AuthorizationSubjectCommandRequest commandRequest) {
+        AuthorizationSubject entity = AuthorizationSubject.valueOf(commandRequest);
+        manager.update(entity);
+    }
 
     /**
      * 暂停

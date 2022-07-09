@@ -1,10 +1,13 @@
 package wang.liangchen.matrix.iam.authorization.message_pl;
 
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
+import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
+import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 
 /**
  * @author Liangchen.Wang 2022-07-07 12:13
  */
+@MessageContract(Direction.North)
 public class AuthorizationSubjectQueryResponse {
     private String tenantCode;
     private String appCode;
