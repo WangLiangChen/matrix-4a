@@ -40,32 +40,8 @@
         <camel-case>true</camel-case>
     </entity>
     <entity>
-        <table-name>matrix_authorization_roleset</table-name>
-        <entity-name>AuthorizationRoleset</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_roleset_subject</table-name>
-        <entity-name>AuthorizationRolesetSubject</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
         <table-name>matrix_authorization_role</table-name>
         <entity-name>AuthorizationRole</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_roleset_role</table-name>
-        <entity-name>AuthorizationRolesetRole</entity-name>
         <context-package>authorization</context-package>
         <column-version>version</column-version>
         <column-markdelete value="deleted">state</column-markdelete>

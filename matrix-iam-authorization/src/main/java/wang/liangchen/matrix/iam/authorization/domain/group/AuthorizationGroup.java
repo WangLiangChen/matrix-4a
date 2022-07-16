@@ -1,4 +1,4 @@
-package wang.liangchen.matrix.iam.authorization.domain;
+package wang.liangchen.matrix.iam.authorization.domain.group;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;

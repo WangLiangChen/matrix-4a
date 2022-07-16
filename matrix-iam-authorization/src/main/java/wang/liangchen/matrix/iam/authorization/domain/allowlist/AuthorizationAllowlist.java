@@ -1,9 +1,10 @@
-package wang.liangchen.matrix.iam.authorization.domain.role;
+package wang.liangchen.matrix.iam.authorization.domain.allowlist;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.CommonEntity;
+import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,35 +14,36 @@ import javax.persistence.Table;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_roleset")
-@Table(name = "matrix_authorization_roleset")
-public class AuthorizationRoleset extends CommonEntity {
+@Entity(name = "matrix_authorization_allowlist")
+@Table(name = "matrix_authorization_allowlist")
+@AggregateRoot
+public class AuthorizationAllowlist extends CommonEntity {
     @Id
-    @Column(name = "roleset_id")
-    private Long rolesetId;
+    @Column(name = "allowlist_id")
+    private Long allowlistId;
     @Column(name = "tenant_code")
     private String tenantCode;
     @Column(name = "app_code")
     private String appCode;
-    @Column(name = "roleset_name")
-    private String rolesetName;
+    @Column(name = "permission_uri")
+    private String permissionUri;
     @ColumnMarkDelete("deleted")
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationRoleset valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRoleset.class);
+    public static AuthorizationAllowlist valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationAllowlist.class);
     }
 
-    public static AuthorizationRoleset newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationRoleset.class);
+    public static AuthorizationAllowlist newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationAllowlist.class);
     }
 
-    public Long getRolesetId() {
-        return this.rolesetId;
+    public Long getAllowlistId() {
+        return this.allowlistId;
     }
-    public void setRolesetId(Long rolesetId) {
-        this.rolesetId = rolesetId;
+    public void setAllowlistId(Long allowlistId) {
+        this.allowlistId = allowlistId;
     }
     public String getTenantCode() {
         return this.tenantCode;
@@ -55,11 +57,11 @@ public class AuthorizationRoleset extends CommonEntity {
     public void setAppCode(String appCode) {
         this.appCode = appCode;
     }
-    public String getRolesetName() {
-        return this.rolesetName;
+    public String getPermissionUri() {
+        return this.permissionUri;
     }
-    public void setRolesetName(String rolesetName) {
-        this.rolesetName = rolesetName;
+    public void setPermissionUri(String permissionUri) {
+        this.permissionUri = permissionUri;
     }
     public String getState() {
         return this.state;
@@ -71,11 +73,11 @@ public class AuthorizationRoleset extends CommonEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationRoleset{");
-        builder.append("rolesetId = ").append(rolesetId).append(", ");
+        builder.append("AuthorizationAllowlist{");
+        builder.append("allowlistId = ").append(allowlistId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
         builder.append("appCode = ").append(appCode).append(", ");
-        builder.append("rolesetName = ").append(rolesetName).append(", ");
+        builder.append("permissionUri = ").append(permissionUri).append(", ");
         builder.append("state = ").append(state).append(", ");
         builder.deleteCharAt(builder.length() - 1);
         builder.append("}");

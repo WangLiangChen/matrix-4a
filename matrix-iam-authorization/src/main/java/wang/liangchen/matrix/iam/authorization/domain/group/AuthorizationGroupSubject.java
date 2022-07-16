@@ -1,9 +1,9 @@
-package wang.liangchen.matrix.iam.authorization.domain;
+package wang.liangchen.matrix.iam.authorization.domain.group;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
-import wang.liangchen.matrix.framework.data.dao.entity.RootEntity;
+import wang.liangchen.matrix.framework.data.dao.entity.CommonEntity;
 import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.Column;
@@ -14,13 +14,13 @@ import javax.persistence.Table;
 /**
  * @author Liangchen.Wang
  */
-@Entity(name = "matrix_authorization_role_subject")
-@Table(name = "matrix_authorization_role_subject")
+@Entity(name = "matrix_authorization_group_subject")
+@Table(name = "matrix_authorization_group_subject")
 @AggregateRoot
-public class AuthorizationRoleSubject extends RootEntity {
+public class AuthorizationGroupSubject extends CommonEntity {
     @Id
-    @Column(name = "role_id")
-    private Long roleId;
+    @Column(name = "group_id")
+    private Long groupId;
     @Id
     @Column(name = "subject_id")
     private Long subjectId;
@@ -28,19 +28,19 @@ public class AuthorizationRoleSubject extends RootEntity {
     @Column(name = "state")
     private String state;
 
-    public static AuthorizationRoleSubject valueOf(Object source) {
-        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationRoleSubject.class);
+    public static AuthorizationGroupSubject valueOf(Object source) {
+        return ObjectUtil.INSTANCE.copyProperties(source, AuthorizationGroupSubject.class);
     }
 
-    public static AuthorizationRoleSubject newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationRoleSubject.class);
+    public static AuthorizationGroupSubject newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationGroupSubject.class);
     }
 
-    public Long getRoleId() {
-        return this.roleId;
+    public Long getGroupId() {
+        return this.groupId;
     }
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
     public Long getSubjectId() {
         return this.subjectId;
@@ -58,8 +58,8 @@ public class AuthorizationRoleSubject extends RootEntity {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("AuthorizationRoleSubject{");
-        builder.append("roleId = ").append(roleId).append(", ");
+        builder.append("AuthorizationGroupSubject{");
+        builder.append("groupId = ").append(groupId).append(", ");
         builder.append("subjectId = ").append(subjectId).append(", ");
         builder.append("state = ").append(state).append(", ");
         builder.deleteCharAt(builder.length() - 1);

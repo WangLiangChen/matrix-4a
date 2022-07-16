@@ -11,15 +11,4 @@
 
     <artifactId>matrix-iam-authentication</artifactId>
 
-    <properties>
-        <version.jose.jwt>9.23</version.jose.jwt>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>${version.jose.jwt}</version>
-        </dependency>
-    </dependencies>
 </project>
