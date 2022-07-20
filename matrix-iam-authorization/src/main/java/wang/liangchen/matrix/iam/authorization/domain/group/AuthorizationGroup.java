@@ -25,8 +25,8 @@ public class AuthorizationGroup extends CommonEntity {
     private Long parentId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "group_code")
     private String groupCode;
     @Column(name = "group_name")
@@ -61,11 +61,11 @@ public class AuthorizationGroup extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
     public String getGroupCode() {
         return this.groupCode;
@@ -93,7 +93,7 @@ public class AuthorizationGroup extends CommonEntity {
         builder.append("groupId = ").append(groupId).append(", ");
         builder.append("parentId = ").append(parentId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("groupCode = ").append(groupCode).append(", ");
         builder.append("groupName = ").append(groupName).append(", ");
         builder.append("state = ").append(state).append(", ");

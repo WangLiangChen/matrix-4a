@@ -23,8 +23,8 @@ public class AuthorizationAllowlist extends CommonEntity {
     private Long allowlistId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "permission_uri")
     private String permissionUri;
     @ColumnMarkDelete("deleted")
@@ -51,11 +51,11 @@ public class AuthorizationAllowlist extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
     public String getPermissionUri() {
         return this.permissionUri;
@@ -76,7 +76,7 @@ public class AuthorizationAllowlist extends CommonEntity {
         builder.append("AuthorizationAllowlist{");
         builder.append("allowlistId = ").append(allowlistId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("permissionUri = ").append(permissionUri).append(", ");
         builder.append("state = ").append(state).append(", ");
         builder.deleteCharAt(builder.length() - 1);

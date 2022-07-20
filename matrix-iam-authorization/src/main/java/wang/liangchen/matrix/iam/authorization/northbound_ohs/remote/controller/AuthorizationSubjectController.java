@@ -1,10 +1,7 @@
 package wang.liangchen.matrix.iam.authorization.northbound_ohs.remote.controller;
 
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wang.liangchen.matrix.framework.data.pagination.PaginationResult;
 import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectCommandRequest;
 import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectQueryRequest;
@@ -19,7 +16,8 @@ import java.util.List;
 /**
  * @author Liangchen.Wang 2022-07-08 10:54
  */
-@RestController("authorization/subject")
+@RestController
+@RequestMapping("/authorization/subject")
 public class AuthorizationSubjectController {
     private final AuthorizationSubjectCommandService commandService;
     private final AuthorizationSubjectQueryService queryService;
@@ -28,6 +26,11 @@ public class AuthorizationSubjectController {
     public AuthorizationSubjectController(AuthorizationSubjectCommandService commandService, AuthorizationSubjectQueryService queryService) {
         this.commandService = commandService;
         this.queryService = queryService;
+    }
+
+    @GetMapping("/void")
+    public void voidMethod(){
+
     }
 
     @PostMapping("/add")

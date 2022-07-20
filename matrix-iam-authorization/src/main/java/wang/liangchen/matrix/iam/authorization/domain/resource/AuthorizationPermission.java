@@ -27,8 +27,8 @@ public class AuthorizationPermission extends CommonEntity {
     private Long roleId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "permission_code")
     private String permissionCode;
     @Column(name = "permission_name")
@@ -83,11 +83,11 @@ public class AuthorizationPermission extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
     public String getPermissionCode() {
         return this.permissionCode;
@@ -141,7 +141,7 @@ public class AuthorizationPermission extends CommonEntity {
         builder.append("operationId = ").append(operationId).append(", ");
         builder.append("roleId = ").append(roleId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("permissionCode = ").append(permissionCode).append(", ");
         builder.append("permissionName = ").append(permissionName).append(", ");
         builder.append("perimissionDependency = ").append(perimissionDependency).append(", ");

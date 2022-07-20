@@ -25,8 +25,8 @@ public class AuthorizationResource extends CommonEntity {
     private Long parentId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "resource_code")
     private String resourceCode;
     @Column(name = "resource_name")
@@ -61,11 +61,11 @@ public class AuthorizationResource extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
     public String getResourceCode() {
         return this.resourceCode;
@@ -93,7 +93,7 @@ public class AuthorizationResource extends CommonEntity {
         builder.append("resourceId = ").append(resourceId).append(", ");
         builder.append("parentId = ").append(parentId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("resourceCode = ").append(resourceCode).append(", ");
         builder.append("resourceName = ").append(resourceName).append(", ");
         builder.append("state = ").append(state).append(", ");

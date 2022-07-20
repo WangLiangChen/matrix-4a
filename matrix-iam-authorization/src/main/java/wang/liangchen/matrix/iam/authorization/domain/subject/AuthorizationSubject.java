@@ -24,8 +24,8 @@ public class AuthorizationSubject extends CommonEntity {
     private Long subjectId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "subject_code")
     private String subjectCode;
     @Column(name = "subject_name")
@@ -58,12 +58,12 @@ public class AuthorizationSubject extends CommonEntity {
         this.tenantCode = tenantCode;
     }
 
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
 
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
 
     public String getSubjectCode() {
@@ -97,7 +97,7 @@ public class AuthorizationSubject extends CommonEntity {
         builder.append("AuthorizationSubject{");
         builder.append("subjectId = ").append(subjectId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("subjectCode = ").append(subjectCode).append(", ");
         builder.append("subjectName = ").append(subjectName).append(", ");
         builder.append("state = ").append(state).append(", ");

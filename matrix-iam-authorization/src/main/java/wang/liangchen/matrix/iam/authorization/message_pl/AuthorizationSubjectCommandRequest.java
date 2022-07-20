@@ -11,7 +11,7 @@ import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 public class AuthorizationSubjectCommandRequest {
     private Long subjectId;
     private String tenantCode;
-    private String appCode;
+    private String consumerCode;
     private String subjectCode;
     private String subjectName;
 
@@ -35,12 +35,12 @@ public class AuthorizationSubjectCommandRequest {
         this.tenantCode = tenantCode;
     }
 
-    public String getAppCode() {
-        return appCode;
+    public String getconsumerCode() {
+        return consumerCode;
     }
 
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
 
     public String getSubjectCode() {

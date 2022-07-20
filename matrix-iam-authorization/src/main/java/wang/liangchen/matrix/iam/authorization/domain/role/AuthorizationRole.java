@@ -23,8 +23,8 @@ public class AuthorizationRole extends CommonEntity {
     private Long roleId;
     @Column(name = "tenant_code")
     private String tenantCode;
-    @Column(name = "app_code")
-    private String appCode;
+    @Column(name = "consumer_code")
+    private String consumerCode;
     @Column(name = "role_code")
     private String roleCode;
     @Column(name = "role_name")
@@ -53,11 +53,11 @@ public class AuthorizationRole extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getAppCode() {
-        return this.appCode;
+    public String getconsumerCode() {
+        return this.consumerCode;
     }
-    public void setAppCode(String appCode) {
-        this.appCode = appCode;
+    public void setconsumerCode(String consumerCode) {
+        this.consumerCode = consumerCode;
     }
     public String getRoleCode() {
         return this.roleCode;
@@ -84,7 +84,7 @@ public class AuthorizationRole extends CommonEntity {
         builder.append("AuthorizationRole{");
         builder.append("roleId = ").append(roleId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
-        builder.append("appCode = ").append(appCode).append(", ");
+        builder.append("consumerCode = ").append(consumerCode).append(", ");
         builder.append("roleCode = ").append(roleCode).append(", ");
         builder.append("roleName = ").append(roleName).append(", ");
         builder.append("state = ").append(state).append(", ");
