@@ -53,10 +53,10 @@ public class AuthorizationRole extends CommonEntity {
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getconsumerCode() {
+    public String getConsumerCode() {
         return this.consumerCode;
     }
-    public void setconsumerCode(String consumerCode) {
+    public void setConsumerCode(String consumerCode) {
         this.consumerCode = consumerCode;
     }
     public String getRoleCode() {

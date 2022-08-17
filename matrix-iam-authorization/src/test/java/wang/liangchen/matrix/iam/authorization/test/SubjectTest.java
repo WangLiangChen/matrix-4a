@@ -19,7 +19,7 @@ public class SubjectTest {
     public void testAdd() {
         AuthorizationSubjectCommandRequest commandRequest = AuthorizationSubjectCommandRequest.newInstance();
         commandRequest.setTenantCode("a");
-        commandRequest.setconsumerCode("b");
+        commandRequest.setConsumerCode("b");
         commandRequest.setSubjectCode("c");
         commandRequest.setSubjectName("d");
         commandService.add(commandRequest);

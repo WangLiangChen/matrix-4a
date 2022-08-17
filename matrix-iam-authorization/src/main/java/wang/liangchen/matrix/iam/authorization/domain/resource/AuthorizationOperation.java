@@ -25,8 +25,10 @@ public class AuthorizationOperation extends CommonEntity {
     private String operationCode;
     @Column(name = "operation_name")
     private String operationName;
-    @Column(name = "operation_dependency")
-    private String operationDependency;
+    @Column(name = "operation_dependence")
+    private String operationDependence;
+    @Column(name = "operation_uri")
+    private String operationUri;
     @ColumnMarkDelete("deleted")
     @Column(name = "state")
     private String state;
@@ -42,36 +44,55 @@ public class AuthorizationOperation extends CommonEntity {
     public Long getOperationId() {
         return this.operationId;
     }
+
     public void setOperationId(Long operationId) {
         this.operationId = operationId;
     }
+
     public Long getResourceId() {
         return this.resourceId;
     }
+
     public void setResourceId(Long resourceId) {
         this.resourceId = resourceId;
     }
+
     public String getOperationCode() {
         return this.operationCode;
     }
+
     public void setOperationCode(String operationCode) {
         this.operationCode = operationCode;
     }
+
     public String getOperationName() {
         return this.operationName;
     }
+
     public void setOperationName(String operationName) {
         this.operationName = operationName;
     }
-    public String getOperationDependency() {
-        return this.operationDependency;
+
+    public String getOperationDependence() {
+        return this.operationDependence;
     }
-    public void setOperationDependency(String operationDependency) {
-        this.operationDependency = operationDependency;
+
+    public void setOperationDependence(String operationDependence) {
+        this.operationDependence = operationDependence;
     }
+
+    public String getOperationUri() {
+        return operationUri;
+    }
+
+    public void setOperationUri(String operationUri) {
+        this.operationUri = operationUri;
+    }
+
     public String getState() {
         return this.state;
     }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -84,7 +105,8 @@ public class AuthorizationOperation extends CommonEntity {
         builder.append("resourceId = ").append(resourceId).append(", ");
         builder.append("operationCode = ").append(operationCode).append(", ");
         builder.append("operationName = ").append(operationName).append(", ");
-        builder.append("operationDependency = ").append(operationDependency).append(", ");
+        builder.append("operationDependence = ").append(operationDependence).append(", ");
+        builder.append("operationUri = ").append(operationUri).append(", ");
         builder.append("state = ").append(state).append(", ");
         builder.deleteCharAt(builder.length() - 1);
         builder.append("}");

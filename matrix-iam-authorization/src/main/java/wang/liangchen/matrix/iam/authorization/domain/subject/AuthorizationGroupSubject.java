@@ -1,10 +1,9 @@
-package wang.liangchen.matrix.iam.authorization.domain.group;
+package wang.liangchen.matrix.iam.authorization.domain.subject;
 
 import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.data.annotation.ColumnMarkDelete;
 import wang.liangchen.matrix.framework.data.dao.entity.CommonEntity;
-import wang.liangchen.matrix.framework.ddd.domain.AggregateRoot;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +15,6 @@ import javax.persistence.Table;
  */
 @Entity(name = "matrix_authorization_group_subject")
 @Table(name = "matrix_authorization_group_subject")
-@AggregateRoot
 public class AuthorizationGroupSubject extends CommonEntity {
     @Id
     @Column(name = "group_id")

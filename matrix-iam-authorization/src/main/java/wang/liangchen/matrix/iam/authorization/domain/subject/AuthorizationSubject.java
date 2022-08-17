@@ -58,11 +58,11 @@ public class AuthorizationSubject extends CommonEntity {
         this.tenantCode = tenantCode;
     }
 
-    public String getconsumerCode() {
+    public String getConsumerCode() {
         return this.consumerCode;
     }
 
-    public void setconsumerCode(String consumerCode) {
+    public void setConsumerCode(String consumerCode) {
         this.consumerCode = consumerCode;
     }
 

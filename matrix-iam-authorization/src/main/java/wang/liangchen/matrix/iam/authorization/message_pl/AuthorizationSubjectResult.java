@@ -2,20 +2,21 @@ package wang.liangchen.matrix.iam.authorization.message_pl;
 
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
+import wang.liangchen.matrix.framework.ddd.message_pl.IResult;
 import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 
 /**
  * @author Liangchen.Wang 2022-07-07 12:13
  */
 @MessageContract(Direction.North)
-public class AuthorizationSubjectQueryResponse {
+public class AuthorizationSubjectResult implements IResult {
     private String tenantCode;
     private String consumerCode;
     private String subjectCode;
     private String subjectName;
 
-    public static AuthorizationSubjectQueryResponse newInstance() {
-        return ClassUtil.INSTANCE.instantiate(AuthorizationSubjectQueryResponse.class);
+    public static AuthorizationSubjectResult newInstance() {
+        return ClassUtil.INSTANCE.instantiate(AuthorizationSubjectResult.class);
     }
 
     public String getTenantCode() {
@@ -26,11 +27,11 @@ public class AuthorizationSubjectQueryResponse {
         this.tenantCode = tenantCode;
     }
 
-    public String getconsumerCode() {
+    public String getConsumerCode() {
         return consumerCode;
     }
 
-    public void setconsumerCode(String consumerCode) {
+    public void setConsumerCode(String consumerCode) {
         this.consumerCode = consumerCode;
     }
 

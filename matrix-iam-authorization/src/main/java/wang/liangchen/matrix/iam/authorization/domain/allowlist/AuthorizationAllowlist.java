@@ -25,8 +25,8 @@ public class AuthorizationAllowlist extends CommonEntity {
     private String tenantCode;
     @Column(name = "consumer_code")
     private String consumerCode;
-    @Column(name = "permission_uri")
-    private String permissionUri;
+    @Column(name = "allowlist_uri")
+    private String allowlistUri;
     @ColumnMarkDelete("deleted")
     @Column(name = "state")
     private String state;
@@ -42,30 +42,39 @@ public class AuthorizationAllowlist extends CommonEntity {
     public Long getAllowlistId() {
         return this.allowlistId;
     }
+
     public void setAllowlistId(Long allowlistId) {
         this.allowlistId = allowlistId;
     }
+
     public String getTenantCode() {
         return this.tenantCode;
     }
+
     public void setTenantCode(String tenantCode) {
         this.tenantCode = tenantCode;
     }
-    public String getconsumerCode() {
+
+    public String getConsumerCode() {
         return this.consumerCode;
     }
-    public void setconsumerCode(String consumerCode) {
+
+    public void setConsumerCode(String consumerCode) {
         this.consumerCode = consumerCode;
     }
-    public String getPermissionUri() {
-        return this.permissionUri;
+
+    public String getAllowlistUri() {
+        return this.allowlistUri;
     }
-    public void setPermissionUri(String permissionUri) {
-        this.permissionUri = permissionUri;
+
+    public void setAllowlistUri(String allowlistUri) {
+        this.allowlistUri = allowlistUri;
     }
+
     public String getState() {
         return this.state;
     }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -77,7 +86,7 @@ public class AuthorizationAllowlist extends CommonEntity {
         builder.append("allowlistId = ").append(allowlistId).append(", ");
         builder.append("tenantCode = ").append(tenantCode).append(", ");
         builder.append("consumerCode = ").append(consumerCode).append(", ");
-        builder.append("permissionUri = ").append(permissionUri).append(", ");
+        builder.append("allowlistUri = ").append(allowlistUri).append(", ");
         builder.append("state = ").append(state).append(", ");
         builder.deleteCharAt(builder.length() - 1);
         builder.append("}");

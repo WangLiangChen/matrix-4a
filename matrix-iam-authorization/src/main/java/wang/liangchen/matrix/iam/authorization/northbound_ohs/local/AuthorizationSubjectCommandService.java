@@ -3,8 +3,8 @@ package wang.liangchen.matrix.iam.authorization.northbound_ohs.local;
 import org.springframework.stereotype.Service;
 import wang.liangchen.matrix.framework.data.enumeration.StateEnum;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.ApplicationService;
+import wang.liangchen.matrix.iam.authorization.domain.AuthorizationSubjectManager;
 import wang.liangchen.matrix.iam.authorization.domain.subject.AuthorizationSubject;
-import wang.liangchen.matrix.iam.authorization.domain.subject.AuthorizationSubjectManager;
 import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectCommandRequest;
 
 import javax.inject.Inject;

@@ -2,13 +2,14 @@ package wang.liangchen.matrix.iam.authorization.message_pl;
 
 import wang.liangchen.matrix.framework.commons.type.ClassUtil;
 import wang.liangchen.matrix.framework.ddd.message_pl.Direction;
+import wang.liangchen.matrix.framework.ddd.message_pl.IQueryRequest;
 import wang.liangchen.matrix.framework.ddd.message_pl.MessageContract;
 
 /**
  * @author Liangchen.Wang 2022-07-07 12:13
  */
 @MessageContract(Direction.North)
-public class AuthorizationSubjectQueryRequest {
+public class AuthorizationSubjectQueryRequest implements IQueryRequest {
     private String tenantCode;
     private String consumerCode;
     private String subjectCode;
@@ -26,11 +27,11 @@ public class AuthorizationSubjectQueryRequest {
         this.tenantCode = tenantCode;
     }
 
-    public String getconsumerCode() {
+    public String getConsumerCode() {
         return consumerCode;
     }
 
-    public void setconsumerCode(String consumerCode) {
+    public void setConsumerCode(String consumerCode) {
         this.consumerCode = consumerCode;
     }
 
