@@ -63,51 +63,6 @@ create unique index matrix_authorization_subject_pk on matrix_authorization_subj
 );
 
 /*==============================================================*/
-/* Table: matrix_authorization_subject_extended_column                 */
-/*==============================================================*/
-create table matrix_authorization_subject_extended_column
-(
-    column_id      int8         not null,
-    subject_id     int8         not null,
-    column_name    varchar(36)  not null,
-    column_value   varchar(200) not null,
-    column_comment varchar(36)  not null,
-    constraint pk_matrix_authorization_subject_exten primary key (column_id)
-);
-
-comment on table matrix_authorization_subject_extended_column is
-    '被授权主体扩展列';
-
-comment on column matrix_authorization_subject_extended_column.column_id is
-    'pk';
-
-comment on column matrix_authorization_subject_extended_column.subject_id is
-    'PrimaryKey';
-
-comment on column matrix_authorization_subject_extended_column.column_name is
-    '列名';
-
-comment on column matrix_authorization_subject_extended_column.column_value is
-    '列值';
-
-comment on column matrix_authorization_subject_extended_column.column_comment is
-    '列注释';
-
-/*==============================================================*/
-/* Index: matrix_authorization_subject_extended_column_pk              */
-/*==============================================================*/
-create unique index matrix_authorization_subject_extended_column_pk on matrix_authorization_subject_extended_column (
-    column_id
-);
-
-/*==============================================================*/
-/* Index: extended_column_fk                                    */
-/*==============================================================*/
-create index extended_column_fk on matrix_authorization_subject_extended_column (
-    subject_id
-);
-
-/*==============================================================*/
 /* Table: matrix_authorization_group                                   */
 /*==============================================================*/
 create table matrix_authorization_group
