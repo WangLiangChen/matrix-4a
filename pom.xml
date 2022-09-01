@@ -34,7 +34,6 @@
     </developers>
 
     <modules>
-        <module>matrix-iam-account</module>
         <module>matrix-iam-authentication</module>
         <module>matrix-iam-authorization</module>
     </modules>

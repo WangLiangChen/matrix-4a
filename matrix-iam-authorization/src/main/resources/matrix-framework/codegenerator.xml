@@ -4,7 +4,7 @@
     <entity>
         <!-- 指定数据源 默认为primary -->
         <datasource></datasource>
-        <table-name>matrix_authorization_subject</table-name>
+        <table-name>authorization_subject</table-name>
         <entity-name>AuthorizationSubject</entity-name>
         <!-- 限界上下文包,只能一级 -->
         <context-package>authorization</context-package>
@@ -16,15 +16,7 @@
         <camel-case>true</camel-case>
     </entity>
     <entity>
-        <table-name>matrix_authorization_subject_extended_column</table-name>
-        <entity-name>AuthorizationSubjectExtendedColumn</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_group</table-name>
+        <table-name>authorization_group</table-name>
         <entity-name>AuthorizationGroup</entity-name>
         <context-package>authorization</context-package>
         <column-version>version</column-version>
