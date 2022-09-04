@@ -1,7 +1,6 @@
 package wang.liangchen.matrix.iam.authorization.northbound_ohs.local;
 
 import org.springframework.stereotype.Service;
-import wang.liangchen.matrix.framework.data.enumeration.StateEnum;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.ApplicationService;
 import wang.liangchen.matrix.iam.authorization.domain.subject.AuthorizationSubject;
 import wang.liangchen.matrix.iam.authorization.domain.subject.AuthorizationSubjectManager;
@@ -34,23 +33,4 @@ public class AuthorizationSubjectCommandService {
         manager.update(entity);
     }
 
-    /**
-     * 暂停
-     * NORMAL->SUSPEND
-     *
-     * @param subjectId AuthorizationSubject's ID
-     */
-    public void suspend(Long subjectId) {
-        manager.changeState(subjectId, StateEnum.NORMAL.name(), StateEnum.SUSPEND.name());
-    }
-
-    /**
-     * 启用
-     * SUSPEND->NORMAL
-     *
-     * @param subjectId AuthorizationSubject's ID
-     */
-    public void resume(Long subjectId) {
-        manager.changeState(subjectId, StateEnum.SUSPEND.name(), StateEnum.NORMAL.name());
-    }
 }

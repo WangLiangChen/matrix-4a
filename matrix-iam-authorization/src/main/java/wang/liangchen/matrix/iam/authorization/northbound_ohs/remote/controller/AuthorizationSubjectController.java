@@ -1,6 +1,6 @@
 package wang.liangchen.matrix.iam.authorization.northbound_ohs.remote.controller;
 
-import org.springframework.data.repository.query.Param;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +13,6 @@ import wang.liangchen.matrix.iam.authorization.northbound_ohs.local.Authorizatio
 import wang.liangchen.matrix.iam.authorization.northbound_ohs.local.AuthorizationSubjectQueryService;
 
 import javax.inject.Inject;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @author Liangchen.Wang 2022-07-08 10:54
@@ -36,7 +34,7 @@ public class AuthorizationSubjectController {
     }
 
     @GetMapping("/delete")
-    public void delete(@Param("subjectId") Long subjectId) {
+    public void delete(Long subjectId) {
         commandService.delete(subjectId);
     }
 
@@ -46,7 +44,7 @@ public class AuthorizationSubjectController {
     }
 
     @GetMapping("/detail")
-    public void detail(@Param("subjectId") Long subjectId) {
+    public void detail(Long subjectId) {
         queryService.detail(subjectId);
     }
 
@@ -55,8 +53,4 @@ public class AuthorizationSubjectController {
         return queryService.pagination(queryRequest);
     }
 
-    @PostMapping("/queryByStates")
-    public List<AuthorizationSubjectQueryResponse> queryByStates(@RequestBody Collection<String> states) {
-        return queryService.queryByStates(states);
-    }
 }

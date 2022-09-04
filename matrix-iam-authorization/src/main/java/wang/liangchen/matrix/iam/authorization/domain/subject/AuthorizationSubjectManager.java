@@ -5,15 +5,11 @@ import wang.liangchen.matrix.framework.commons.uid.NumbericUid;
 import wang.liangchen.matrix.framework.data.dao.StandaloneDao;
 import wang.liangchen.matrix.framework.data.dao.criteria.Criteria;
 import wang.liangchen.matrix.framework.data.dao.criteria.EntityGetter;
-import wang.liangchen.matrix.framework.data.dao.criteria.SqlValue;
-import wang.liangchen.matrix.framework.data.dao.criteria.UpdateCriteria;
 import wang.liangchen.matrix.framework.data.enumeration.StateEnum;
 import wang.liangchen.matrix.framework.data.pagination.PaginationResult;
 import wang.liangchen.matrix.framework.ddd.domain.DomainService;
 
 import javax.inject.Inject;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @author Liangchen.Wang 2022-07-08 10:49
@@ -47,34 +43,10 @@ public class AuthorizationSubjectManager {
     public AuthorizationSubject detail(Long subjectId, EntityGetter<AuthorizationSubject>... resultFields) {
         return standaloneDao.select(Criteria.of(AuthorizationSubject.class)
                 .resultFields(resultFields)
-                ._equals(AuthorizationSubject::getSubjectId, SqlValue.of(subjectId)));
+                ._equals(AuthorizationSubject::getSubjectId, subjectId));
     }
 
     public PaginationResult<AuthorizationSubject> pagination(Criteria<AuthorizationSubject> criteria) {
         return standaloneDao.pagination(criteria);
-    }
-
-    public void changeState(Long subjectId, String stateTo, String... stateFrom) {
-        SqlValue[] sqlValues = new SqlValue[stateFrom.length];
-        for (int i = 0; i < stateFrom.length; i++) {
-            sqlValues[i] = SqlValue.of(stateFrom[i]);
-        }
-        standaloneDao.update(UpdateCriteria.of(AuthorizationSubject.newInstance())
-                // 强制更新状态
-                .forceUpdate(AuthorizationSubject::getState, stateTo)
-                ._equals(AuthorizationSubject::getSubjectId, SqlValue.of(subjectId))
-                ._in(AuthorizationSubject::getState, sqlValues));
-    }
-
-
-    public List<AuthorizationSubject> queryByStates(Collection<String> states, EntityGetter<AuthorizationSubject>... resultFields) {
-        int size = states.size();
-        SqlValue[] sqlValues = new SqlValue[size];
-        for (String state : states) {
-            sqlValues[size--] = SqlValue.of(state);
-        }
-        return standaloneDao.list(Criteria.of(AuthorizationSubject.class)
-                .resultFields(resultFields)
-                ._in(AuthorizationSubject::getState, sqlValues));
     }
 }

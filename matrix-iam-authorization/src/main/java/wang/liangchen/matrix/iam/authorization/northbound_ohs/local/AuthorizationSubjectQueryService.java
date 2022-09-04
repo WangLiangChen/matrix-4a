@@ -1,7 +1,6 @@
 package wang.liangchen.matrix.iam.authorization.northbound_ohs.local;
 
 import org.springframework.stereotype.Service;
-import wang.liangchen.matrix.framework.commons.object.ObjectUtil;
 import wang.liangchen.matrix.framework.data.dao.criteria.Criteria;
 import wang.liangchen.matrix.framework.data.pagination.PaginationResult;
 import wang.liangchen.matrix.framework.ddd.northbound_ohs.ApplicationService;
@@ -11,8 +10,6 @@ import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectQu
 import wang.liangchen.matrix.iam.authorization.message_pl.AuthorizationSubjectQueryResponse;
 
 import javax.inject.Inject;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @author Liangchen.Wang 2022-07-08 10:53
@@ -39,8 +36,4 @@ public class AuthorizationSubjectQueryService {
         return pagination.to(AuthorizationSubjectQueryResponse.class);
     }
 
-    public List<AuthorizationSubjectQueryResponse> queryByStates(Collection<String> states) {
-        List<AuthorizationSubject> entities = manager.queryByStates(states);
-        return ObjectUtil.INSTANCE.copyProperties(entities, AuthorizationSubjectQueryResponse.class);
-    }
 }
