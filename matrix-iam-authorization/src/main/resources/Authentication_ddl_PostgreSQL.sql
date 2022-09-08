@@ -3,6 +3,8 @@
 /*==============================================================*/
 create table account (
    account_id           INT8                 not null,
+   tenant_code          VARCHAR(36)          not null,
+   consumer_code        VARCHAR(36)          not null,
    account_code         VARCHAR(60)          not null,
    account_name         VARCHAR(60)          not null,
    account_nickname     VARCHAR(60)          not null,
@@ -179,6 +181,8 @@ account_id
 create table authentication_subject (
    subject_id           INT8                 not null,
    account_id           INT8                 null,
+   tenant_code          VARCHAR(36)          not null,
+   consumer_code        VARCHAR(36)          not null,
    subject_code         VARCHAR(36)          not null,
    subject_source       VARCHAR(36)          not null,
    source_settings      VARCHAR(500)         not null,
