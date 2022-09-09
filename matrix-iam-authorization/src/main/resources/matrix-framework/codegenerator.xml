@@ -5,86 +5,19 @@
         <!-- 指定数据源 默认为primary -->
         <datasource></datasource>
         <table-name>authorization_subject</table-name>
+        <!-- 指定实体类名,默认下划线转驼峰
         <entity-name>AuthorizationSubject</entity-name>
+         -->
         <!-- 限界上下文包,只能一级 -->
         <context-package>authorization</context-package>
         <!-- 标识版本的列名 -->
         <column-version>version</column-version>
         <!-- 标记删除的列名和值 -->
         <column-markdelete value="deleted">state</column-markdelete>
-        <!-- 列名是否转驼峰风格属性名 -->
+        <!-- 标识自动转换Json的列名 -->
+        <column-json>state</column-json>
+        <!-- 列名是否转驼峰风格属性名,默认为true
         <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>authorization_group</table-name>
-        <entity-name>AuthorizationGroup</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_group_subject</table-name>
-        <entity-name>AuthorizationGroupSubject</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_role</table-name>
-        <entity-name>AuthorizationRole</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_role_subject</table-name>
-        <entity-name>AuthorizationRoleSubject</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_resource</table-name>
-        <entity-name>AuthorizationResource</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_operation</table-name>
-        <entity-name>AuthorizationOperation</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_permission</table-name>
-        <entity-name>AuthorizationPermission</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_role_resource_operation</table-name>
-        <entity-name>AuthorizationRoleResourceOperation</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
-    </entity>
-    <entity>
-        <table-name>matrix_authorization_allowlist</table-name>
-        <entity-name>AuthorizationAllowlist</entity-name>
-        <context-package>authorization</context-package>
-        <column-version>version</column-version>
-        <column-markdelete value="deleted">state</column-markdelete>
-        <camel-case>true</camel-case>
+         -->
     </entity>
 </entities>
